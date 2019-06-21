@@ -49,7 +49,7 @@ int getIDLength(int id){
  concat two strings
 */
 char * concat(const char * s1, const char * s2){
-  char * result = malloc(strlen(s1) + strlen(s2) + 1);
+  char * result = (char *)malloc(strlen(s1) + strlen(s2) + 1);
   strcpy(result, s1);
   strcat(result, s2);
   return result;
@@ -68,7 +68,7 @@ char * getTransactionID(){
   for(int ii = 0; ii <= 2; ii++){
     int n = rand() % MAX;
     int idLen = getIDLength(n);
-    char * id = malloc(idLen + 2);
+    char * id = (char *)malloc(idLen + 2);
     sprintf(id, "%d.", n);
     result = concat(result, id);
   }
@@ -161,7 +161,7 @@ int main(void){
 
   //concatenate transaction id from client and random generated ip
   char * incompleteIP = getTransactionID();
-  char * idChar = malloc(getIDLength(id) + 1);
+  char * idChar = (char *)malloc(getIDLength(id) + 1);
   sprintf(idChar, "%d", id);
   completeIP = concat(incompleteIP, idChar);
 
