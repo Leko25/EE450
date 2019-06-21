@@ -40,7 +40,7 @@ struct Node{
 //Append elements to list -- O(n)
 void _append(struct Node ** list, char * p){
    struct Node * newNode = (struct Node *)malloc(sizeof(struct Node));
-   newNode->dept = malloc(strlen(p) + 1);
+   newNode->dept = (char *)malloc(strlen(p) + 1); //talk to Xuan about this for grader -- previous malloc(strlen(p) + 1)
    strcpy(newNode->dept, p);
    newNode->next = NULL;
    if(*list == NULL){
